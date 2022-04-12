@@ -1,0 +1,106 @@
+#include <stdio.h>
+#define _CRT_SECURE_NO_WARNINGS
+int main() {
+	const float RATE_USD = 1233.07;	
+	const float RATE_JPY = 9.87;
+	const float RATE_EUR = 1342.46;
+	const float RATE_CNY = 193.52;
+	const float RATE_GBP = 1605.09;
+	
+	float outputDollar = 0;
+	float outputJPY = 0;
+	float outputEUR = 0;
+	float outputCNY = 0;
+	float outputGBP = 0;
+
+	int inputWon;
+	scanf("%d",&inputWon);
+	printf("환전할 금액: %d원\n",inputWon);
+	printf("환전할 외화 선택: 1.USD, 2.JPY 3.EUR 4.CNY 5.GBP\n");
+	
+	outputDollar = inputWon / RATE_USD;
+		int changeUSD = (outputDollar - ((int)outputDollar))*RATE_USD;
+		outputJPY = inputWon / RATE_JPY;
+		int changeJPY = (outputJPY - ((int)outputJPY))*RATE_JPY;
+		outputEUR = inputWon / RATE_EUR;
+		int changeEUR = (outputEUR - ((int)outputEUR))*RATE_EUR;
+		outputCNY = inputWon / RATE_CNY;
+		int changeCNY = (outputCNY - ((int)outputCNY))*RATE_CNY;
+		outputGBP = inputWon / RATE_GBP;
+		int changeGBP = (outputGBP - ((int)outputGBP))*RATE_GBP;
+	
+	int n;
+	scanf("%d",&n);
+	
+	if(n==1) {
+		printf("기준환율: %7.2f\n",RATE_USD);
+		printf("환전 결과: %d 달러, 잔돈: %d원\n",(int)outputDollar, changeUSD/10*10);	
+		int won500, won100, won50, won10;
+		int temp = 0;
+		won500 = changeUSD/500;
+		temp = changeUSD%500;
+		won100 = temp/100;
+		temp = temp%100;
+		won50 = temp/50;
+		temp = temp%50;
+		won10 = temp/10;
+		printf("500- %d 100- %d 50- %d 10- %d",won500,won100,won50,won10);
+	} 
+	if(n==2) {
+		printf("기준환율: %7.2f\n",RATE_JPY);
+		printf("환전 결과: %d 엔, 잔돈: %d원\n",(int)outputJPY, changeJPY/10*10);
+		int won500, won100, won50, won10;
+		int temp = 0;
+		won500 = changeJPY/500;
+		temp = changeJPY%500;
+		won100 = temp/100;
+		temp = temp%100;
+		won50 = temp/50;
+		temp = temp%50;
+		won10 = temp/10;
+		printf("500- %d 100- %d 50- %d 10- %d",won500,won100,won50,won10);	
+	}
+	if(n==3) {
+		printf("기준환율: %7.2f\n",RATE_EUR);
+		printf("환전 결과: %d 유로, 잔돈: %d원\n",(int)outputEUR, changeEUR/10*10);	
+		int won500, won100, won50, won10;
+		int temp = 0;
+		won500 = changeEUR/500;
+		temp = changeEUR%500;
+		won100 = temp/100;
+		temp = temp%100;
+		won50 = temp/50;
+		temp = temp%50;
+		won10 = temp/10;
+		printf("500- %d 100- %d 50- %d 10- %d",won500,won100,won50,won10);
+	}
+	if(n==4) {
+		printf("기준환율: %7.2f\n",RATE_CNY);
+		printf("환전 결과: %d 위안, 잔돈: %d원\n",(int)outputCNY, changeCNY/10*10);
+		int won500, won100, won50, won10;
+		int temp = 0;
+		won500 = changeCNY/500;
+		temp = changeCNY%500;
+		won100 = temp/100;
+		temp = temp%100;
+		won50 = temp/50;
+		temp = temp%50;
+		won10 = temp/10;
+		printf("500- %d 100- %d 50- %d 10- %d",won500,won100,won50,won10);
+	}
+	if(n==5) {
+		printf("기준환율: %7.2f\n",RATE_GBP);
+		printf("환전 결과: %d 파운드, 잔돈: %d원\n",(int)outputGBP, changeGBP/10*10);
+		int won500, won100, won50, won10;
+		int temp = 0;
+		won500 = changeGBP/500;
+		temp = changeGBP%500;
+		won100 = temp/100;
+		temp = temp%100;
+		won50 = temp/50;
+		temp = temp%50;
+		won10 = temp/10;
+		printf("500- %d 100- %d 50- %d 10- %d",won500,won100,won50,won10);
+}
+	return 0;
+}
