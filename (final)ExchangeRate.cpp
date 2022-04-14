@@ -11,7 +11,7 @@ int main() {
 	float outputMoney = 0;
 
 	int inputWon;
-	printf("È¯ÀüÇÒ ±İ¾×: ");
+	printf("í™˜ì „í•  ê¸ˆì•¡: ");
 	scanf("%d",&inputWon);
 	
 	int val;
@@ -20,7 +20,7 @@ int main() {
 	
 	do{
 		printf("************************************************\n");
-		printf("È¯ÀüÇÒ ¿ÜÈ­ ¼±ÅÃ: 1.USD, 2.JPY 3.EUR 4.CNY 5.GBP\n");
+		printf("í™˜ì „í•  ì™¸í™” ì„ íƒ: 1.USD, 2.JPY 3.EUR 4.CNY 5.GBP\n");
 		scanf("%d",&n);
 		
 	switch(n) {
@@ -40,7 +40,7 @@ int main() {
 			changeRate = RATE_GBP;
 			break;
 	}		
-		printf("±âÁØÈ¯À²: %7.2f\n",changeRate);
+		printf("ê¸°ì¤€í™˜ìœ¨: %7.2f\n",changeRate);
 		outputMoney = inputWon / changeRate;
 		val = outputMoney*100;
 		val = ((int)((val%100)*changeRate/100)/10*10);
@@ -52,27 +52,27 @@ int main() {
 	    won50 = (val%100)/50;
 	    won10 = (val%50)/10;
 	    
-	    printf("%d¿ø >> %d",inputWon,(int)outputMoney);
+	    printf("%dì› >> %d",inputWon,(int)outputMoney);
 	    
 	    switch(n){
 	    	case 1:
-	    		printf("´Ş·¯\n");
+	    		printf("ë‹¬ëŸ¬\n");
 	    		break;
 	    	case 2:
-	    		printf("¿£\n");
+	    		printf("ì—”\n");
 	    		break; 
 	    	case 3:
-	    		printf("À¯·Î\n");
+	    		printf("ìœ ë¡œ\n");
 	    		break;
-			case 4:
-	    		printf("À§¾È\n");
+		case 4:
+	    		printf("ìœ„ì•ˆ\n");
 	    		break; 
-			case 5:
-	    		printf("ÆÄ¿îµå\n");
+		case 5:
+	    		printf("íŒŒìš´ë“œ\n");
 	    		break; 		 
 		}
-		printf("ÀÜµ·: %d¿ø\n",val);
-		printf("1000¿ø- %d 500¿ø- %d 100¿ø- %d 50¿ø- %d 10¿ø- %d",won1000,won500,won100,won50,won10);
+		printf("ì”ëˆ: %dì›\n",val);
+		printf("1000ì›- %d 500ì›- %d 100ì›- %d 50ì›- %d 10ì›- %d",won1000,won500,won100,won50,won10);
 		printf("\n");
 	
 	}while(n<6);
