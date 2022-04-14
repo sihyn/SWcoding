@@ -1,0 +1,59 @@
+#include <stdio.h>
+#define _CRT_SECURE_NO_WARNINGS
+// kopo05김시현 
+// 달력출력  
+int main() {
+	int lastday[12] = {31,28,31,30,31,30,31,31,30,31,30,31}; //각 달의 마지막 날
+	int firstday; //1900년도의 1일 시작
+	int year,month; //년도, 월 
+	int totalday = 0; //1900년도와 입력년월 사이 일 수
+	int index = 0;
+	int index1;
+do {
+	printf("\n년도 입력:");
+	scanf("%d",&year); //년도 입력  
+	if(year == 0) //year이 0이라면 종료 
+		printf("\n종료합니다.");
+		
+	if(year != 0) { //year이 0이 아니라면 시행 
+		printf("월 입력:");
+		scanf("%d",&month); //월 입력 
+		printf("\n*********************%d  %d월*********************",year,month);
+		printf("\n일\t월\t화\t수\t목\t금\t토\t\n");
+		printf("***************************************************\n");
+	
+	if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0)  //윤년일 경우 
+		lastday[1] = 29; //2월의 마지막 날은 29일
+		
+	//작년까지의 일 수+ 윤년= totalday	
+	totalday = ((year-1) * 365)+((year-1) / 4)-((year-1) / 100)+((year-1) / 400);  
+		//#윤년규칙: 
+		//1. 해당년도가 4로 나눠지면 윤년 
+		//2. 100으로도 나눠지면 평년이니까 뺀다 
+		//3. 400으로까지 나눠지면 윤년	 
+		
+	for(index = 1; index < month; index++) { //입력한 달까지 반복(해당년도) 
+		totalday = totalday+lastday[index-1]; //작년까지의 일 수+해당년도 일 수 
+		}
+	firstday = (totalday+1)%7; //1900년 1월 1일은 월요일이기 때문에 +1 
+		//일:0 월:1 화:2 수:3 목:4 금:5 토:6 
+	
+	for(index1 = 0; index1 < firstday; index1++) //1일 위치 맞추기 
+		printf("\t");
+
+	for(index1 = 1; index1 <= lastday[month-1]; index1++) {  
+		printf("%-d\t",index1); //1일부터 해당 달의 마지막 날까지 출력
+		
+	firstday = firstday+1; //요일+1 
+		if(firstday%7 == 0) { //일주일  단위로 끊어 내림 
+			printf("\n\n");
+			firstday = 0; //firstday 초기화 
+		}
+	}
+	printf("\n");
+	}
+}while(year != 0); //year이 0이 아닐때까지 시행 
+	return 0;
+}
+
+
